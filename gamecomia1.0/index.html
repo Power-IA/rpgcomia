@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Elementos com IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Jogo de Elementos com IA</h1>
+            <div class="control-section">
+                <div class="language-selection">
+                    <label for="languageSelect">Idioma:</label>
+                    <select id="languageSelect" disabled>
+                        <option value="pt-BR">Português (Brasil)</option>
+                        <option value="en-US">English (US)</option>
+                        <option value="es-ES">Español</option>
+                        <option value="fr-FR">Français</option>
+                        <option value="de-DE">Deutsch</option>
+                        <option value="it-IT">Italiano</option>
+                        <option value="ja-JP">日本語</option>
+                        <option value="zh-CN">中文 (简体)</option>
+                        <option value="ru-RU">Русский</option>
+                    </select>
+                </div>
+                <div class="api-key-section">
+                    <input type="password" id="apiKeyInput" placeholder="Digite sua chave API do OpenRouter">
+                    <button id="connectButton">Conectar</button>
+                </div>
+                <div class="model-selection">
+                    <select id="modelSelect" disabled>
+                        <option value="">Selecione um modelo</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Painel da História -->
+            <section class="story-section">
+                <div class="story-panel">
+                    <h2>História</h2>
+                    <div class="scroll-controls">
+                        <button id="scrollTopBtn" title="Rolar para o topo">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                        <button id="scrollBottomBtn" title="Rolar para o final">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="story-output"></div>
+                    <div class="story-input">
+                        <textarea id="commandInput" placeholder="Continue a história ou adicione novos elementos..." disabled></textarea>
+                        <div class="story-controls">
+                            <button id="sendCommand" disabled>Enviar</button>
+                            <button id="resetGame">Reiniciar</button>
+                            <button id="saveStory">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Elementos -->
+            <section class="elements-section">
+                <div class="elements-grid">
+                    <!-- Categorias -->
+                    <div class="element-container categories-container">
+                        <h3>Categorias</h3>
+                        <div class="categories-list">
+                            <!-- As categorias serão inseridas aqui pelo JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Elementos -->
+                    <div class="element-container elements-container">
+                        <h3>Elementos</h3>
+                        <div class="elements-list">
+                            <!-- Os elementos serão inseridas aqui pelo JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Elementos Selecionados -->
+                    <div class="element-container selected-container">
+                        <h3>Elementos Selecionados</h3>
+                        <div class="selected-elements-list">
+                            <!-- Os elementos selecionados serão inseridos aqui pelo JavaScript -->
+                        </div>
+                        <div class="context-input">
+                            <textarea id="storyContext" placeholder="Digite o contexto para sua história..." disabled></textarea>
+                            <button id="generateStory" class="primary-button" disabled>Gerar História</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="elements.js"></script>
+    <script src="components/ElementViewer.js"></script>
+    <script src="components/ElementPrompt.js"></script>
+    <script src="game.js"></script>
+    <script>
+        // Inicializar o visualizador de elementos quando a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            // Já está sendo inicializado no game.js
+        });
+    </script>
+</body>
+</html> 
